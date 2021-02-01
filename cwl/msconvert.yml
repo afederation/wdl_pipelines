@@ -1,0 +1,6 @@
+raw_file:
+  class: File
+  path: 20180221_QEHF2_1MIT_15kRP-1.RAW
+config_file: 
+  class: File 
+  path: d.conf

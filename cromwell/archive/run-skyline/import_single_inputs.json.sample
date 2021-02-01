@@ -1,0 +1,10 @@
+{
+  "import_single.experiment_name": "run_skyline",
+  "import_single.run_name": "Site20_STUDY9S_Cond_6ProtMix_QC_01",
+  "import_single.skyline_template_doc_name": "Study9S_Site20_v2.sky",
+  "import_single.skyline_template_url": "https://panoramaweb.org/_webdav/home/Example Data/Workflow/%40files/Study9S_Site20_v2.sky",
+  "import_single.raw_file_url": "https://panoramaweb.org/_webdav/home/Example Data/Workflow/%40files/RawFiles/Site20_STUDY9S_Cond_6ProtMix_QC_01.RAW",
+  "import_single.panorama_server_url": "https://panoramaweb.org",
+  "import_single.panorama_folder": "home/Example Data/Workflow"
+}
+

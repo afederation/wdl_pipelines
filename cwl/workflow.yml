@@ -1,0 +1,7 @@
+raw_file_list_url: https://panoramaweb.org/_webdav/00Developer/bdconnoll/cromwell/%40files/run-msconvert/raw-file-list.txt
+msconvert_config_url: https://panoramaweb.org/_webdav/00Developer/bdconnoll/cromwell/%40files/run-msconvert/full-spectrum-msconvert.cfg
+user: bconn+nonadmin@proteinms.net
+password: captive.pam.gunboat.vacation
+upload_url: https://panoramaweb.org
+upload_url_folder: 00Developer/bdconnoll/cromwell
+upload_experiment_name: run-msconvert

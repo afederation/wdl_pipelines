@@ -1,0 +1,55 @@
+#List name of runs
+RUNS = ["2020_0908_Eclipse_32_DDA_SIM60_r1_b0again","2020_0908_Eclipse_35_DDA_SIM60_r2_b0again","2020_0908_Eclipse_36_DDA_SIM60_r3_b0again"]
+
+#Name the batch
+batch = "SIM60_b0again"
+
+#Define mzML portion of shell command for Limelight Import
+mzML_command=""
+for file in RUNS:
+	mzML_command += "-s mzMLs/" + file + ".mzML "
+
+#Files that must be created by pipeline to ensure that all rules were completed
+rule all:
+	input:
+		expand("crux_limelight/{batch_name}.log.txt", batch_name=batch)
+
+#Crux comet search of all files together		
+rule comet_search:
+	input:
+		mzMLs=expand("mzMLs/{runfile}.mzML", runfile=RUNS),
+		fasta="Human_PD_ClinVarpep.fasta",
+		param_file="2020_1028_mike_high_low_cruxcromwell.params"
+	output:
+		expand("crux_output_sm/{{batch_name}}/comet.{runfile}.target.pin", runfile=RUNS)
+	shell:
+		"crux comet --parameter-file {input.param_file} {input.mzMLs} {input.fasta} --output-dir crux_output_sm/{wildcards.batch_name} --overwrite T"
+
+#Crux percolator analysis of files
+rule percolator:
+	input:
+		pins=expand("crux_output_sm/{batch_name}/comet.{runfile}.target.pin", batch_name=batch, runfile=RUNS)
+	output:
+		"crux_output_sm/{batch_name}/percolator.pout.xml"
+	shell:
+		"crux percolator --pout-output T --output-dir crux_output_sm/{wildcards.batch_name} --overwrite T {input.pins}"
+
+#Convert crux percolator XML into Limelight XML
+rule limelight_convert:
+	input:
+		"crux_output_sm/{batch_name}/percolator.pout.xml"
+	output:
+		"crux_limelight/{batch_name}.crux.limelight.xml"
+	shell:
+		"java -jar cruxCometPercolator2LimelightXML.jar -d crux_output_sm/{wildcards.batch_name} -f {rules.comet_search.input.fasta} -o {output}"
+
+#Import Limelight XML into Limelight
+#Change project value (eg. 42) and define import key
+rule import_limelight:
+	input:
+		limexml="crux_limelight/{batch_name}.crux.limelight.xml",
+		mzMLs=expand("mzMLs/{runfile}.mzML", runfile=RUNS)
+	output:
+		"crux_limelight/{batch_name}.log.txt"
+	shell:
+		"java -jar limelightSubmitImport.jar --limelight-web-app-url=https://limelight.yeastrc.org/limelight -p 42 --user-submit-import-key= --search-description=\"{wildcards.batch_name}\" -i {input.limexml} {mzML_command} > {output}" 

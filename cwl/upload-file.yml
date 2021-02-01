@@ -1,0 +1,8 @@
+url: https://panoramaweb.org/
+url_folder: 00Developer/bdconnoll/cromwell
+experiment_name: run-msconvert
+user: bconn+nonadmin@proteinms.net
+password: captive.pam.gunboat.vacation
+file_to_be_uploaded: 
+  class: File
+  path: hello.tar

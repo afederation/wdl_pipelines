@@ -1,0 +1,7 @@
+{
+  "lincs_gct_workflow.panorama_apikey": "<Panorama API key>",
+  "lincs_gct_workflow.url_webdav_skyline_zip": "<Webdav URL of .sky.zip file>",
+  "lincs_gct_workflow.url_webdav_skyr": "<Webdav URL of Skyline report template>",
+  "lincs_gct_workflow.url_webdav_gct_dir": "<Webdav URL where the GCT will be uploaded>"
+  "lincs_gct_workflow.url_webdav_cromwell_output_dir": "<Webdav URL where the exported Skyline report and log files will be uploaded>"
+}

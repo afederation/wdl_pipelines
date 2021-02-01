@@ -1,0 +1,11 @@
+{
+  "import_raw_into_skyline.experiment_name": "run_skyline_docker",
+  "import_raw_into_skyline.panorama_server_url": "https://panoramaweb.org",
+  "import_raw_into_skyline.skyline_template_url": "https://panoramaweb.org/_webdav/home/Example Data/Workflow/%40files/Study9S_Site20_v2.sky",
+  "import_raw_into_skyline.raw_file_url": "https://panoramaweb.org/_webdav/home/Example Data/Workflow/%40files/RawFiles/Site20_STUDY9S_Cond_6ProtMix_QC_01.RAW",
+  "import_raw_into_skyline.panorama_folder": "home/Example Data/Workflow",
+  "import_raw_into_skyline.run_name": "Site20_STUDY9S_Cond_6ProtMix_QC_01",
+  "import_raw_into_skyline.skyline_template_doc_name": "Study9S_Site20_v2.sky",
+  "import_raw_into_skyline.netrc": "/HOME/DIR/.netrc"
+}
+

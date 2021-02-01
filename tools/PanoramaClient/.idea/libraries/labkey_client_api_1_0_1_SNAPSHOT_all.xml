@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="labkey-client-api-1.0.1-SNAPSHOT-all">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/labkey-client-api-1.0.1-SNAPSHOT-all.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

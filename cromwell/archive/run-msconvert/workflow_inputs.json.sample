@@ -1,0 +1,8 @@
+{
+  "run_msconvert.msconvert_config_url": "https://panoramaweb.org/_webdav/home/Example%20Data/Workflow/%40files/msconvert/full-spectrum-msconvert.cfg",
+  "run_msconvert.raw_file_list_url": "https://panoramaweb.org/_webdav/home/Example%20Data/Workflow/%40files/msconvert/raw-file-list.txt",
+  "run_msconvert.panorama_server_url": "https://panoramaweb.org",
+  "run_msconvert.panorama_server_folder": "Example%20Data/Workflow",
+  "run_msconvert.panorama_server_folder_path": "msconvert",
+  "run_msconvert.netrc": "/HOME/DIR/.netrc"
+}

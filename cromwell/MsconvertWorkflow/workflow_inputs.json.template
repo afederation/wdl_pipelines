@@ -1,0 +1,6 @@
+{
+    "msconvert_workflow.panorama_apikey": "<Panorama API key>",
+    "msconvert_workflow.url_webdav_msconvert_config": "<Webdav URL of msconvert config file>",
+    "msconvert_workflow.url_webdav_raw_files_folder": "<Webdav URL of folder on Panorama that has raw files>",
+    "msconvert_workflow.url_webdav_converted_files_folder": "<Webdav URL of folder on Panorama that where converted files will be uploaded>"
+}

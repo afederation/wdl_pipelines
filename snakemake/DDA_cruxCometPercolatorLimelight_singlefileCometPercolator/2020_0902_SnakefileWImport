@@ -1,0 +1,49 @@
+#List name of runs
+RUNS = ["2020_0212_Loomis_19_DDA_SIM","2020_0212_Loomis_21_DDA_SIM60","2020_0212_Loomis_22_DDA_SIM60_400","2020_0212_Loomis_23_DDA_SIM60_515","2020_0212_Loomis_24_DDA_SIM60_700","2020_0212_Loomis_25_DDA_SIM180_all","2020_0212_Loomis_26_DDA_SIM180"]
+
+#Files that must be created by pipeline to ensure that all rules were completed
+rule all:
+	input:
+		expand("crux_limelight/{runfile}.log.txt", runfile=RUNS)
+
+#Crux comet search of each file
+rule comet_search:
+	input:
+		mzML="mzMLs/{runfile}.mzML",
+		fasta="Human_PD_ClinVarpep.fasta",
+		param_file="2020_1028_mike_high_low_cruxcromwell.params"
+	output:
+		"crux_output_sm/{runfile}/comet.log.txt",
+        "crux_output_sm/{runfile}/comet.target.pep.xml",
+        "crux_output_sm/{runfile}/comet.target.pin",
+        "crux_output_sm/{runfile}/comet.params.txt"
+	shell:
+		"crux comet --parameter-file {input.param_file} {input.mzML} {input.fasta} --output-dir crux_output_sm/{wildcards.runfile} --overwrite T"
+
+#Crux percolator analysis of each file
+rule percolator:
+	input:
+		pin="crux_output_sm/{runfile}/comet.target.pin"
+	output:
+		"crux_output_sm/{runfile}/percolator.pout.xml"
+	shell:
+		"crux percolator --pout-output T --output-dir crux_output_sm/{wildcards.runfile} --overwrite T {input.pin}"
+
+#Convert crux percolator XML into Limelight XML
+rule limelight_convert:
+	input:
+		"crux_output_sm/{runfile}/percolator.pout.xml"
+	output:
+		"crux_limelight/{runfile}.crux.limelight.xml"
+	shell:
+		"java -jar cruxCometPercolator2LimelightXML.jar -d crux_output_sm/{wildcards.runfile} -f {rules.comet_search.input.fasta} -o {output}"
+
+#Import Limelight XML into Limelight
+#Change project value (eg. 42) and define import key
+rule import_limelight:
+	input:
+		"crux_limelight/{runfile}.crux.limelight.xml"
+	output:
+		"crux_limelight/{runfile}.log.txt"
+	shell:
+		"java -jar limelightSubmitImport.jar --limelight-web-app-url=https://limelight.yeastrc.org/limelight -p 42 --user-submit-import-key= --search-description=\"{wildcards.runfile}\" -i {input} -s mzMLs/{wildcards.runfile}.mzML > {output}" 

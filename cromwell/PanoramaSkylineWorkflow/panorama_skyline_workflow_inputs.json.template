@@ -1,0 +1,7 @@
+{
+  "panorama_skyline_workflow.panorama_apikey": "<Panorama API key>",
+  "panorama_skyline_workflow.url_webdav_skyline_template": "<Webdav URL of template .sky file>",
+  "panorama_skyline_workflow.url_webdav_raw_files_folder": "<Webdav URL of folder on Panorama that has raw files>",
+  "panorama_skyline_workflow.url_target_panorama_folder": "<URL of Panorama folder where the final .sky.zip will be uploaded>",
+  "panorama_skyline_workflow.raw_file_ext": "<e.g. one of RAW | mzML | mzXML>"
+}

@@ -1,0 +1,10 @@
+{
+    "dia_msconvert_encyclopedia.panorama_apikey": "<Panorama API key>",
+    "dia_msconvert_encyclopedia.url_labkey_webdav_fasta": "<Webdav URL of fasta file>",
+    "dia_msconvert_encyclopedia.url_labkey_webdav_dda_library": "<Webdav URL of DDA library file>",
+    "dia_msconvert_encyclopedia.url_labkey_webdav_input_narrow_files_folder": "<Webdav URL of folder on Panorama that has narrow window input files>",
+    "dia_msconvert_encyclopedia.url_labkey_webdav_input_wide_files_folder": "<Webdav URL of folder on Panorama that has wide window input files>",
+    "dia_msconvert_encyclopedia.url_labkey_webdav_output_files_folder": "<Webdav URL of folder on Panorama where files will be uploaded>",
+    "dia_msconvert_encyclopedia.encyclopedia_library_name": "<Name of libraries created by EncyclopeDIA>",
+    "dia_msconvert_encyclopedia.input_file_extension": "<Extension of the files to be imported into the template (RAW|mzML)>"
+}

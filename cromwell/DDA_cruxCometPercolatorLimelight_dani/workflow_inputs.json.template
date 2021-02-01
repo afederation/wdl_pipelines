@@ -1,0 +1,10 @@
+{
+  "dda_crux_comet_percolator_limelight_workflow.panorama_apikey": "<Panorama API key>",
+  "dda_crux_comet_percolator_limelight_workflow.url_webdav_fasta": "<Webdav URL of fasta file>",
+  "dda_crux_comet_percolator_limelight_workflow.url_webdav_input_files_folder": "<Webdav URL of folder on Panorama that has raw files>",
+  "dda_crux_comet_percolator_limelight_workflow.url_webdav_output_files_folder": "<URL of Panorama folder where the final .sky.zip will be uploaded>",
+  "dda_crux_comet_percolator_limelight_workflow.input_file_extension": "<e.g. one of RAW | mzML | mzXML>",
+  "dda_crux_comet_percolator_limelight_workflow.limelight_web_app_url": "<Limelight web URL>",
+  "dda_crux_comet_percolator_limelight_workflow.limelight_project_id": "<LimeLight project ID where results will be uploaded>",
+  "dda_crux_comet_percolator_limelight_workflow.limelight_user_key": "<Limelight user key>"
+}
